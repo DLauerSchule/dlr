@@ -49,6 +49,18 @@ public class MainWindow : Gtk.Application {
     }
 
     [CCode (instance_pos = -1)]
+    public void on_open_popover_menu(Gtk.Button sender)
+    {
+        // TODO
+    }
+
+    [CCode (instance_pos = -1)]
+    public void on_open_about_clicked(Gtk.Button sender)
+    {
+        // TODO
+    }
+
+    [CCode (instance_pos = -1)]
     public void on_destroy(Gtk.Button sender)
     {
         // This function will be called when the "DLR" button gets clicked
@@ -132,6 +144,11 @@ public class MainWindow : Gtk.Application {
                 play_button.set_image(icon);
                 break;
             default:
+                var icon = new Gtk.Image.from_icon_name(
+                    "view-refresh",
+                    Gtk.IconSize.DIALOG);
+                play_button.set_image(icon);
+                update_now_playing_label();
                 break;
         }
     }
